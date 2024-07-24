@@ -22,6 +22,12 @@
 			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
 		};
 	};
+
+	aliases {
+		led0 = &led0;
+		bootloader-led0 = &led0;
+		watchdog0 = &wdt;
+	};
 };
 
 &flash0 {
