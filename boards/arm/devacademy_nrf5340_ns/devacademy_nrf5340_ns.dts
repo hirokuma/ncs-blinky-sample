@@ -13,6 +13,14 @@
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_ns_partition;
 	};
+
+	leds {
+		compatible = "gpio-leds";
+		led0: led_0 {
+			label = "Red LED 0";
+			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
+		};
+	};
 };
 
 &flash0 {
@@ -77,4 +85,16 @@
             reg = <0x20070000 0x10000>;
         };
     };
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
 };
