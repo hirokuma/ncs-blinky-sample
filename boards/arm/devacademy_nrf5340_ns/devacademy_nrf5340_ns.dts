@@ -3,6 +3,7 @@
 
 /dts-v1/;
 #include <nordic/nrf5340_cpuappns_qkaa.dtsi>
+#include "devacademy_nrf5340-pinctrl.dtsi"
 
 / {
 	model = "DevAcademy NS nRF5340";
