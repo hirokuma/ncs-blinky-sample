@@ -7,4 +7,4 @@ config BOARD_ENABLE_DCDC
 	bool "DCDC mode"
 	select SOC_DCDC_NRF53X
 	default y
-	depends on BOARD_DEVACADEMY_NRF5340
+	depends on BOARD_DEVACADEMY_NRF5340_NS

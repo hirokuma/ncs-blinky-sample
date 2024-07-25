@@ -3,11 +3,11 @@
 
 /dts-v1/;
 #include <nordic/nrf5340_cpuappns_qkaa.dtsi>
-#include "devacademy_nrf5340-pinctrl.dtsi"
+#include "devacademyns_nrf5340-pinctrl.dtsi"
 
 / {
-	model = "DevAcademy NS nRF5340";
-	compatible = "hirokuma,devacademy-nrf5340-ns";
+	model = "DevAcademyNS nRF5340";
+	compatible = "hirokuma,devacademyns-nrf5340";
 
 	chosen {
 		zephyr,sram = &sram0;

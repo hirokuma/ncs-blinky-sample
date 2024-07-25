@@ -1,8 +1,8 @@
 # Copyright (c) 2024 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: devacademy_nrf5340_ns
-name: DevAcademy NS nRF5340
+identifier: devacademyns_nrf5340
+name: DevAcademyNS nRF5340
 type: mcu
 arch: arm
 ram: 512

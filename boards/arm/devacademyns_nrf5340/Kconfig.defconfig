@@ -1,10 +1,10 @@
 # Copyright (c) 2024 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-if BOARD_DEVACADEMY_NRF5340_NS
+if BOARD_DEVACADEMYNS_NRF5340
 
 config BOARD
-	default "devacademy_nrf5340_ns"
+	default "devacademyns_nrf5340"
 
 
 #Build with TF-M as the Secure Execution Environment
