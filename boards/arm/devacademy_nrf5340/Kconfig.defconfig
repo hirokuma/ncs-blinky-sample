@@ -1,11 +1,36 @@
 # Copyright (c) 2024 Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
-if BOARD_DEVACADEMY_NRF5340
+if BOARD_DEVACADEMY_NRF5340 || BOARD_DEVACADEMY_NRF5340_NS
 
 config BOARD
 	default "devacademy_nrf5340"
 
+config BUILD_WITH_TFM
+	default y if BOARD_DEVACADEMY_NRF5340_NS
 
+if BUILD_WITH_TFM
 
-endif
+config TFM_FLASH_MERGED_BINARY
+	bool
+	default y
+
+endif # BUILD_WITH_TFM
+
+DT_CHOSEN_Z_CODE_PARTITION := zephyr,code-partition
+
+config FLASH_LOAD_SIZE
+	default $(dt_chosen_reg_size_hex,$(DT_CHOSEN_Z_CODE_PARTITION))
+	depends on BOARD_DEVACADEMY_NRF5340 && TRUSTED_EXECUTION_SECURE
+
+if BOARD_DEVACADEMY_NRF5340_NS
+
+config FLASH_LOAD_OFFSET
+	default $(dt_chosen_reg_addr_hex,$(DT_CHOSEN_Z_CODE_PARTITION))
+
+config FLASH_LOAD_SIZE
+	default $(dt_chosen_reg_size_hex,$(DT_CHOSEN_Z_CODE_PARTITION))
+
+endif # BOARD_DEVACADEMY_NRF5340_NS
+
+endif # BOARD_DEVACADEMY_NRF5340 || BOARD_DEVACADEMY_NRF5340_NS

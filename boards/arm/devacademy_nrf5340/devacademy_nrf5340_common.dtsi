@@ -1,22 +1,29 @@
-// Copyright (c) 2024 Nordic Semiconductor ASA
-// SPDX-License-Identifier: Apache-2.0
-
-/dts-v1/;
-#include <nordic/nrf5340_cpuapp_qkaa.dtsi>
-#include "devacademy_nrf5340_common.dtsi"
-#include "devacademy_nrf5340-pinctrl.dtsi"
-
 / {
-	model = "DevAcademy nRF5340 non-secure";
-	compatible = "hirokuma,devacademy-nrf5340";
-
-	chosen {
-		zephyr,sram = &sram0_image;
-		zephyr,flash = &flash0;
-		zephyr,code-partition = &slot0_partition;
-		zephyr,sram-secure-partition = &sram0_s;
-		zephyr,sram-non-secure-partition = &sram0_ns;
+	leds {
+		compatible = "gpio-leds";
+		led0: led_0 {
+			label = "Red LED 0";
+			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
+		};
 	};
+
+	aliases {
+		led0 = &led0;
+		bootloader-led0 = &led0;
+		watchdog0 = &wdt;
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
 };
 
 &flash0 {
@@ -56,8 +63,6 @@
 	};
 };
 
-
-
 /* Default shared SRAM planning when building for nRF5340.
 * This file is included by both nRF5340 CPUAPP (Application MCU)
 * and nRF5340 CPUNET (Network MCU).
@@ -82,24 +87,25 @@
 		sram0_ns: image_ns@20040000 {
 			/* Non-Secure image memory */
 		};
-
-        sram0_shared: memory@20070000 {
-            /* SRAM allocated to shared memory */
-            reg = <0x20070000 0x10000>;
-        };
 	};
 };
 
-&gpio0 {
-	status = "okay";
-};
+/ {
+	chosen {
+		/* shared memory reserved for the inter-processor communication */
+		zephyr,ipc_shm = &sram0_shared;
+	};
 
-&gpio1 {
-	status = "okay";
-};
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
 
-&gpiote {
-	status = "okay";
+		sram0_shared: memory@20070000 {
+			/* SRAM allocated to shared memory */
+			reg = <0x20070000 0x10000>;
+		};
+	};
 };
 
 #include "devacademy_nrf5340_partition_conf.dtsi"
