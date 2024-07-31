@@ -78,13 +78,13 @@ config USB_NRFX_ATTACHED_EVENT_DELAY
 	default 700 if USB_DEVICE_DRIVER
 
 config I2C
-	default y
+	default n
 
 config SPI
-	default y
+	default n
 
 config REGULATOR
-	default y
+	default n
 
 endif # !TRUSTED_EXECUTION_SECURE
 
@@ -100,23 +100,23 @@ config USB_DEVICE_PID
 	default 0x530C
 
 config USB_DEVICE_STACK
-	default y
+	default n
 
 config USB_CDC_ACM
-	default y
+	default n
 
 config UART_CONSOLE
-	default CONSOLE
+	default n
 
 config USB_DEVICE_INITIALIZE_AT_BOOT
 	default y if !MCUBOOT
 
 config SHELL_BACKEND_SERIAL_CHECK_DTR
-	default SHELL
+	default n
 	depends on UART_LINE_CTRL
 
 config UART_LINE_CTRL
-	default SHELL
+	default n
 
 config USB_DEVICE_REMOTE_WAKEUP
 	default n
