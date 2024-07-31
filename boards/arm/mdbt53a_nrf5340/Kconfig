@@ -59,6 +59,15 @@ config DOMAIN_CPUNET_BOARD
 	  another board. For example hci_ipc on the nRF5340_cpunet for
 	  Bluetooth applications.
 
+config MCUBOOT_USE_ALL_AVAILABLE_RAM
+	bool "Allow MCUBoot to use all available RAM (security implications)"
+	default y
+	depends on ARM_TRUSTZONE_M
+	help
+	  By default MCUBoot uses only the secure RAM partition. Enabling this
+	  may allow secrets to be leaked to non-secure through the non-secure
+	  RAM partition.
+
 endif # BOARD_MDBT53A_NRF5340_CPUAPP || BOARD_MDBT53A_NRF5340_CPUAPP_NS
 
 if BOARD_MDBT53A_NRF5340_CPUNET
