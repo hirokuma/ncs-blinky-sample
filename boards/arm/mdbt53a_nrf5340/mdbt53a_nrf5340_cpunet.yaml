@@ -1,0 +1,14 @@
+identifier: mdbt53a_nrf5340_cpunet
+name: MDBT53A-NRF5340-network-MCU
+type: mcu
+arch: arm
+toolchain:
+  - gnuarmemb
+  - xtools
+  - zephyr
+ram: 64
+flash: 256
+supported:
+  - gpio
+  - watchdog
+vendor: nordic
