@@ -1,6 +1,0 @@
-# Copyright (c) 2024 Nordic Semiconductor ASA
-# SPDX-License-Identifier: Apache-2.0
-
-config BOARD_DEVACADEMY_NRF5340
-	bool "DevAcademy nRF5340"
-	depends on SOC_NRF5340_CPUAPP_QKAA
