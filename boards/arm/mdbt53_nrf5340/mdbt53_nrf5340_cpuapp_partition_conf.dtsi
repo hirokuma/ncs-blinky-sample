@@ -57,4 +57,4 @@
 };
 
 /* Include shared RAM configuration file */
-#include "nrf5340_shared_sram_planning_conf.dtsi"
+#include "mdbt53_nrf5340_shared_sram_planning_conf.dtsi"

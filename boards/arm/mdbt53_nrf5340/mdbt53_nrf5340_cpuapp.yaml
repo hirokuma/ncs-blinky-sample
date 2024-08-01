@@ -1,5 +1,5 @@
 identifier: mdbt53_nrf5340_cpuapp
-name: NRF5340-DK-NRF5340-application-MCU
+name: MDBT53-NRF5340-application-MCU
 type: mcu
 arch: arm
 toolchain:

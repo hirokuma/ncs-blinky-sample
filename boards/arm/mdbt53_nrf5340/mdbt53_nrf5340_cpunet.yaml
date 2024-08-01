@@ -1,5 +1,5 @@
 identifier: mdbt53_nrf5340_cpunet
-name: NRF5340-DK-NRF5340-network-MCU
+name: MDBT53-NRF5340-network-MCU
 type: mcu
 arch: arm
 toolchain:
