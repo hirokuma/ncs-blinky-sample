@@ -24,21 +24,14 @@ app:
   size: 0xd4000
 mcuboot_primary:
   address: 0x10000
-  orig_span: &id001
-  - mcuboot_pad
-  - tfm
-  - app
   region: flash_primary
   size: 0xe0000
-  span: *id001
+  span: [mcuboot_pad, tfm, app]
 mcuboot_primary_app:
   address: 0x10200
-  orig_span: &id002
-  - tfm
-  - app
   region: flash_primary
   size: 0xdfe00
-  span: *id002
+  span: [tfm, app]
 nonsecure_storage:
   address: 0xf0000
   size: 0x10000
