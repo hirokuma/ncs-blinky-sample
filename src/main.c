@@ -31,6 +31,7 @@ int main(void)
 			return 0;
 		}
 	}
+	printk("Hello!\n");
 
 	if (!gpio_is_ready_dt(&led)) {
 		return 0;
@@ -41,7 +42,10 @@ int main(void)
 		return 0;
 	}
 
+	int cnt = 0;
 	while (1) {
+		printk("toggle - %d\n", cnt);
+		cnt++;
 		ret = gpio_pin_toggle_dt(&led);
 		if (ret < 0) {
 			return 0;
