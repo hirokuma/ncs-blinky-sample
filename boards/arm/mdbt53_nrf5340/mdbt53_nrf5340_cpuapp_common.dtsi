@@ -26,8 +26,7 @@
 	/* These aliases are provided for compatibility with samples */
 	aliases {
 		led0 = &led0;
-		sw0 = &button0;
-		bootloader-led0 = &led0;
+		button0 = &button0;
 		mcuboot-button0 = &button0;
 		mcuboot-led0 = &led0;
 		watchdog0 = &wdt0;
